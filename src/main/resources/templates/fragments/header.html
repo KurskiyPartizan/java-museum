@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="ru">
+
+</head>
+<body>
+<div class="container">
+    <div th:fragment="header">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" th:href="@{/}">Интерактивный музей</a>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" th:href="@{/peoples}">Персональная картотека</a></li>
+                        <li sec:authorize="isAuthenticated()"><a href="#" th:href="@{/people/new}">Добавить ветерана</a></li>
+                        <li sec:authorize="hasRole('ADMIN')"><a href="#" th:href="@{/admin}">Пользователи</a></li>
+                        <li>
+                        <li  sec:authorize="!isAuthenticated()">
+                            <a href="#" th:href="@{/login}">Вход и регистрация</a>
+                        </li >
+                        <li  sec:authorize="isAuthenticated()">
+                            <a href="/logout">Выйти</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+</body>

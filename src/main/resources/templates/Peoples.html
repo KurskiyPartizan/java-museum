@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="ru">
+    <title>Персональная картотека</title>
+    <th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+<th:block th:include="fragments/header :: header"></th:block>
+<div class="container">
+    <h2>Персональная картотека</h2>
+    <div th:if="${not #lists.isEmpty(peoples)}">
+        <table class="table table-striped">
+            <tr>
+                <th>Фамилия Имя Отчество</th>
+                <th>Дата рождения</th>
+                <th>Место рождения</th>
+                <th>Дата смерти</th>
+                <th>Место смерти</th>
+            </tr>
+            <tr th:each="people : ${peoples}">
+                <td th:text="${people.PersonLastName+' '+people.PersonFirstName+' '+people.PersonSecondName}"><a href="/people/${people.id}"></a></td>
+                <td th:text="${people.DateOfBirth}"></td>
+                <td th:text="${people.PlaceOfBirth}"></td>
+                <td th:text="${people.DateOfDeath}"></td>
+                <td th:text="${people.PlaceOfDeath}"></td>
+                <td><a th:href="${ '/people/' + people.id}">Подробнее</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

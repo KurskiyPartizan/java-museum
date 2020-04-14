@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Создание (редактирование) персональной карточки</title>
+    <th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+<th:block th:include="fragments/header :: header"></th:block>
+<div class="container">
+    <h2>Карточка</h2>
+    <form class="form-horizontal" th:object="${people}" th:action="@{/people}" method="post">
+
+        <input type="hidden" th:field="*{id}"/>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Фамилия</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" th:field="*{PersonLastName}"/>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Имя</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" th:field="*{PersonFirstName}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Отчество</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" th:field="*{PersonSecondName}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Дата рождения</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" th:field="*{DateOfBirth}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Место рождения</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" th:field="*{PlaceOfBirth}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Дата смерти</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" th:field="*{DateOfDeath}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Место смерти</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" th:field="*{PlaceOfDeath}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Биография:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" th:field="*{Biography}"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <button type="submit" class="btn btn-default">Сохранить</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
